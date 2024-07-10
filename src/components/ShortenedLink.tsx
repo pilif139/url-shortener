@@ -13,8 +13,8 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
   const link = window.location.href+"/"+alias;
 
   return (
-      <motion.div
-          initial={{opacity: 0, scale: 0.50}}
+      <motion.div key={alias}
+          initial={{opacity: 0, scale: 0.90}}
           animate={{opacity: 1, scale: 1}}
           transition={{duration: 0.5}}
           className="mt-5 bg-gray-100 p-8 flex flex-col justify-center items-center rounded-3xl hover:bg-gray-300 transition justify-self-end">

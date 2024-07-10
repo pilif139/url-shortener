@@ -2,6 +2,7 @@
 
 import {useState, useRef} from "react";
 import {addUrl} from "@/action/actions";
+import {motion} from "framer-motion";
 import {z} from "zod";
 
 const urlSchema = z.object({
@@ -61,14 +62,14 @@ export default function Form({setAlias} : FormProps){
                  required
                  ref={urlRef}
           />
-          {urlError && <p className="text-red-500">{urlError}</p>}
+          {urlError && <motion.p initial={{y:-20}} animate={{y:0}} className="text-red-500">{urlError}</motion.p>}
           <input type="text"
                  placeholder="Your optional alias..."
                  className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
                  name="alias"
                  ref={aliasRef}
           />
-          {aliasError && <p className="text-red-500">{aliasError}</p>}
+          {aliasError && <motion.p initial={{y:-20}} animate={{y:0}} className="text-red-500">{aliasError}</motion.p>}
           <button type="submit"
                   className="bg-violet-500 p-2 px-8 rounded-2xl mx-4 text-white w-max hover:bg-violet-600 transition">Submit
           </button>
