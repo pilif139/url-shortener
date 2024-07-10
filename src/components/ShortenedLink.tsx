@@ -1,6 +1,8 @@
 'use client'
 
 import Link from "next/link";
+import QRCode from "react-qr-code";
+import {motion} from "framer-motion";
 
 type ShortenedLinkProps = {
   alias: string
@@ -8,11 +10,19 @@ type ShortenedLinkProps = {
 }
 
 export default function ShortenedLink({alias} : ShortenedLinkProps){
+  const link = window.location.href+"/"+alias;
+
   return (
-      <div className="mt-5 bg-gray-300 px-12 h-[10em] flex items-center rounded-3xl hover:bg-gray-400 transition">
-        <Link href={window.location.href+"/"+alias} className="hover:text-violet-700 transition">
-          {window.location.href+"/"+alias}
+      <motion.div
+          initial={{opacity: 0, scale: 0.50}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{duration: 0.5}}
+          className="mt-5 bg-gray-100 p-8 flex flex-col justify-center items-center rounded-3xl hover:bg-gray-300 transition justify-self-end">
+        Generated link:
+        <Link href={window.location.href+"/"+alias} className="hover:text-violet-700 underline text-indigo-700 transition mb-5">
+          {link}
         </Link>
-      </div>
+        <QRCode value={link} size={250}/>
+      </motion.div>
   )
 }

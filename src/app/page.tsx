@@ -8,9 +8,9 @@ export default function Home() {
   const [alias, setAlias] = useState<string | undefined>("");
 
   return (
-    <main className="text-2xl flex flex-col items-center justify-center">
+    <main className="text-2xl flex flex-col items-center justify-center mt-20">
       <Form setAlias={setAlias}></Form>
-        {alias && <ShortenedLink alias={alias}/>}
+      {alias && <ShortenedLink alias={alias}/>}
     </main>
   );
 }
