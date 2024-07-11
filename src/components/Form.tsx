@@ -15,9 +15,10 @@ const urlSchema = z.object({
 
 type FormProps = {
   setAlias: (alias: string | undefined) => void
+    setIsLoading: (isLoading: boolean) => void
 }
 
-export default function Form({setAlias} : FormProps){
+export default function Form({setAlias, setIsLoading} : FormProps){
   const [urlError, setUrlError] = useState<string>("");
   const [aliasError, setAliasError] = useState<string>("");
 
@@ -33,11 +34,15 @@ export default function Form({setAlias} : FormProps){
     const result = urlSchema.safeParse(newUrl);
     if(!result.success){
       setUrlError(result.error.errors[0].message);
+      setAlias(undefined)
       if(result.error.errors[1]) {
         setAliasError(result.error.errors[1].message);
       }
+      setIsLoading(false);
       return;
     }
+
+    // code when the zod validation passes
     const response = await addUrl(formData)
     setAlias(response.alias)
     if(response.error){
@@ -50,6 +55,8 @@ export default function Form({setAlias} : FormProps){
         urlRef.current.value = "";
         aliasRef.current.value = "";
       }
+
+    setIsLoading(false);
     }
 
   }
@@ -63,7 +70,6 @@ export default function Form({setAlias} : FormProps){
                   placeholder="Enter your url here..."
                   className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
                   name="url"
-                  required
                   ref={urlRef}
           />
           {urlError && <motion.p initial={{y:-20}} animate={{y:0}} className="text-red-500">{urlError}</motion.p>}
@@ -83,6 +89,7 @@ export default function Form({setAlias} : FormProps){
                   animate={{opacity: 1, scale: 1}}
                   transition={{duration: 0.4, type: "tween", stiffness: 500, damping: 20}}
                   type="submit"
+                  onClick={() => setIsLoading(true)}
                   className="bg-violet-500 p-2 px-8 rounded-2xl mx-4 text-white w-max hover:bg-violet-600 transition">Submit
           </motion.button>
         </form>

@@ -11,11 +11,11 @@ export default function Footer(){
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.5}}
-          className="flex absolute bottom-0 text-5xl p-5 gap-3">
-        <Link href={"https://github.com/pilif139"} target="_blank">
+          className="flex justify-center fixed bottom-0 text-5xl p-5 gap-3">
+        <Link href={"https://github.com/pilif139"} target="_blank" className="hover:text-gray-500 transition duration-500">
           <FaGithub/>
         </Link>
-        <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"} target="_blank">
+        <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"} target="_blank" className="hover:text-gray-500 transition duration-500">
           <FaLinkedin />
         </Link>
       </motion.div>
