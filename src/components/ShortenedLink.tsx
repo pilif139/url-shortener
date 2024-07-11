@@ -10,7 +10,7 @@ type ShortenedLinkProps = {
 }
 
 export default function ShortenedLink({alias} : ShortenedLinkProps){
-  const link = window.location.href+"/"+alias;
+  const link = window.location.href+alias;
 
   return (
       <motion.div key={alias}
@@ -19,7 +19,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
           transition={{duration: 0.5}}
           className="mt-5 bg-gray-100 p-8 flex flex-col justify-center items-center rounded-3xl hover:bg-gray-300 transition justify-self-end">
         Generated link:
-        <Link href={window.location.href+"/"+alias} className="hover:text-violet-700 underline text-indigo-700 transition mb-5">
+        <Link href={link} className="hover:text-violet-700 underline text-indigo-700 transition mb-5">
           {link}
         </Link>
         <QRCode value={link} size={250}/>
