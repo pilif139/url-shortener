@@ -11,7 +11,7 @@ export default function Footer(){
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.5}}
-          className="flex justify-center relative bottom-0 text-5xl p-5 gap-3">
+          className="flex justify-center fixed bottom-0 text-5xl p-5 gap-3">
         <Link href={"https://github.com/pilif139"} target="_blank" className="hover:text-gray-500 transition duration-500">
           <FaGithub/>
         </Link>

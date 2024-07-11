@@ -68,7 +68,7 @@ export default function Form({setAlias, setIsLoading} : FormProps){
                   transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
                   type="text"
                   placeholder="Enter your url here..."
-                  className="p-2 rounded-2xl w-[20em] md:w-[30em] outline-none focus:bg-slate-100 transition"
+                  className="p-2 rounded-2xl w-[15em] md:w-[30em] outline-none focus:bg-slate-100 transition"
                   name="url"
                   ref={urlRef}
           />
@@ -79,7 +79,7 @@ export default function Form({setAlias, setIsLoading} : FormProps){
                   transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
                   type="text"
                   placeholder="Your optional alias..."
-                  className="p-2 rounded-2xl w-[20em] md:w-[30em] outline-none focus:bg-slate-100 transition"
+                  className="p-2 rounded-2xl w-[15em] md:w-[30em] outline-none focus:bg-slate-100 transition"
                   name="alias"
                   ref={aliasRef}
           />
