@@ -3,6 +3,7 @@ import { Radio_Canada} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const radio_canada = Radio_Canada({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${radio_canada.className} bg-slate-200 min-h-screen flex flex-col items-center justify-center`}>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
