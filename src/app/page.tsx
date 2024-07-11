@@ -10,7 +10,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   return (
-    <main className="text-2xl flex flex-col items-center justify-center mt-28 min-h-[85vh]">
+    <main className="text-2xl flex flex-col items-center justify-center md:mt-28 mt-36 min-h-[75vh]">
       <Form setAlias={setAlias} setIsLoading={setIsLoading}></Form>
       {!isLoading && alias && <ShortenedLink alias={alias}/>}
       <RiseLoader loading={isLoading} size={20} className="mt-20"/>

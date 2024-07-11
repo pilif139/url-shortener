@@ -3,6 +3,7 @@
 import Link from "next/link";
 import QRCode from "react-qr-code";
 import {motion} from "framer-motion";
+import {useState, useEffect} from "react";
 
 type ShortenedLinkProps = {
   alias: string
@@ -10,6 +11,16 @@ type ShortenedLinkProps = {
 }
 
 export default function ShortenedLink({alias} : ShortenedLinkProps){
+    const [qrSize, setQrSize] = useState<number>(250);
+    useEffect(() => {
+      const handleResize = () => {
+        setQrSize(window.innerWidth > 768 ? 250 : 200);
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
   const link = window.location.href+alias;
 
   return (
@@ -22,7 +33,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
         <Link href={link} className="hover:text-violet-700 underline text-indigo-700 transition mb-5">
           {link}
         </Link>
-        <QRCode value={link} size={250}/>
+        <QRCode value={link} size={qrSize}/>
       </motion.div>
   )
 }
