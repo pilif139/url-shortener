@@ -55,10 +55,8 @@ export default function Form({setAlias, setIsLoading} : FormProps){
         urlRef.current.value = "";
         aliasRef.current.value = "";
       }
-
-    setIsLoading(false);
     }
-
+    setIsLoading(false);
   }
   return (
         <form action={clientAction} className="flex flex-col gap-5 items-center">
