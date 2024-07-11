@@ -55,24 +55,36 @@ export default function Form({setAlias} : FormProps){
   }
   return (
         <form action={clientAction} className="flex flex-col gap-5 items-center">
-          <input type="text"
-                 placeholder="Enter your url here..."
-                 className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
-                 name="url"
-                 required
-                 ref={urlRef}
+          <motion.input
+                  initial={{opacity: 0, x: -200}}
+                  animate={{opacity: 1, x: 0}}
+                  transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
+                  type="text"
+                  placeholder="Enter your url here..."
+                  className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
+                  name="url"
+                  required
+                  ref={urlRef}
           />
           {urlError && <motion.p initial={{y:-20}} animate={{y:0}} className="text-red-500">{urlError}</motion.p>}
-          <input type="text"
-                 placeholder="Your optional alias..."
-                 className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
-                 name="alias"
-                 ref={aliasRef}
+          <motion.input
+                  initial={{opacity: 0, x: 200}}
+                  animate={{opacity: 1, x: 0}}
+                  transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
+                  type="text"
+                  placeholder="Your optional alias..."
+                  className="p-2 rounded-2xl w-[30em] outline-none focus:bg-slate-100 transition"
+                  name="alias"
+                  ref={aliasRef}
           />
           {aliasError && <motion.p initial={{y:-20}} animate={{y:0}} className="text-red-500">{aliasError}</motion.p>}
-          <button type="submit"
+          <motion.button
+                  initial={{opacity: 0, scale: 0.9}}
+                  animate={{opacity: 1, scale: 1}}
+                  transition={{duration: 0.4, type: "tween", stiffness: 500, damping: 20}}
+                  type="submit"
                   className="bg-violet-500 p-2 px-8 rounded-2xl mx-4 text-white w-max hover:bg-violet-600 transition">Submit
-          </button>
+          </motion.button>
         </form>
   )
 }
