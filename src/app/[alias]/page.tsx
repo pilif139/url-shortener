@@ -1,8 +1,7 @@
-import {NextRequest} from "next/server";
 import prisma from "@/db/prisma-client";
 import {notFound, permanentRedirect} from "next/navigation";
 
-export async function GET(req: NextRequest, {params}: {params: {alias: string}}){
+export default async function AliasHanlder({params}: {params: {alias: string}}){
   const url = await prisma.url.findUnique({
     where: {
       alias: params.alias
@@ -14,5 +13,4 @@ export async function GET(req: NextRequest, {params}: {params: {alias: string}})
   else{
     notFound();
   }
-
 }
