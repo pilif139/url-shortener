@@ -1,12 +1,33 @@
+'use client'
+
+import React, {useEffect, useRef} from "react"
+import {useRouter} from "next/navigation"
+
 type ModalProps = {
     children: React.ReactNode
-
 }
 
+
 export default function Modal({children} : ModalProps){
+  const router = useRouter()
+  const dialogRef = useRef<HTMLDialogElement>(null)
+
+  useEffect(() => {
+    dialogRef.current?.showModal()
+  }, []);
+
+  const closeDialog = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) =>
+    e.target === dialogRef.current && router.back()
+
   return (
-    <div className="fixed top-0 left-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
-      {children}
-    </div>
+    <dialog
+        ref={dialogRef}
+        onClick={closeDialog}
+        onClose={router.back}
+        className="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent">
+      <div className="bg-slate-200 dark:bg-slate-800 p-14 rounded-2xl dark:text-white shadow-2xl">
+        {children}
+      </div>
+    </dialog>
   )
 }
