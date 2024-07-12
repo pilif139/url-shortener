@@ -13,7 +13,7 @@ datasource db {
   url      = env("POSTGRES_URL")
 }
 
-model Url {
+model ShortUrl {
   id        String   @id @default(cuid())
   createdAt DateTime @default(now())
   url       String

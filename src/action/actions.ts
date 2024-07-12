@@ -16,7 +16,7 @@ async function ensureUniqueAlias(providedAlias: string){
   if(alias === ""){
     do{
       alias = generateAlias();
-    }while(await prisma.url.findUnique({where: {alias}}))
+    }while(await prisma.shortUrl.findUnique({where: {alias}}))
   }
   return alias;
 }
@@ -24,12 +24,12 @@ async function ensureUniqueAlias(providedAlias: string){
 export async function addUrl(formData: FormData){
   const alias = await ensureUniqueAlias(formData.get("alias") as string);
 
-  if(!await prisma.url.findUnique({
+  if(!await prisma.shortUrl.findUnique({
     where: {
       alias: formData.get("alias") as string
     }
   })){
-    await prisma.url.create({
+    await prisma.shortUrl.create({
       data: {
         url: formData.get("url") as string,
         alias: alias
@@ -37,7 +37,7 @@ export async function addUrl(formData: FormData){
     })
     return {alias, error: undefined}
   }
-  else{
+  else {
     return {alias: undefined, error: "Alias already exists!"}
   }
 }

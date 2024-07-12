@@ -31,7 +31,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
           animate={{opacity: 1, scale: 1}}
           transition={{duration: 0.5}}
           className="mt-5 bg-gray-100 md:p-8 flex flex-col justify-center items-center rounded-3xl hover:bg-gray-300 transition justify-self-end w-max p-4">
-        <div className="bg-green-400 p-4 rounded-xl text-gray-700 mb-3 flex items-center gap-2">
+        <div className="bg-green-400 hover:bg-green-500 transition p-4 rounded-xl text-gray-700 mb-3 flex items-center gap-2">
           <FiCheck />
           <h2>Successfully generated link!</h2>
         </div>
