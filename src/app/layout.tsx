@@ -4,7 +4,7 @@ import "./globals.css";
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Auth from "@/components/Auth";
+import RegisterButton from "@/components/RegisterButton";
 
 const radio_canada = Radio_Canada({ subsets: ["latin"] });
 
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${radio_canada.className} bg-slate-200 dark:bg-slate-800 dark:text-white min-h-screen flex flex-col justify-center gap-5`}>
       <header className="flex w-full flex-col items-center">
-        <Auth/>
+        <RegisterButton/>
         <Header/>
       </header>
       <main className="flex items-center justify-center min-h-[65vh] flex-col">

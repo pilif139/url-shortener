@@ -58,6 +58,7 @@ export default function Form({setAlias, setIsLoading} : FormProps){
     }
     setIsLoading(false);
   }
+
   return (
         <form action={clientAction} className="flex flex-col items-center gap-5">
           <motion.input
