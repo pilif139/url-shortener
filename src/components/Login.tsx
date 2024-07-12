@@ -2,12 +2,17 @@
 
 import {motion} from "framer-motion";
 import Link from "next/link";
+import {useFormState, useFormStatus} from "react-dom";
+import {login} from "@/actions/login";
 
 export default function Login(){
+  const [state, action] = useFormState(login, undefined)
+
   return (
       <div className="flex flex-col items-center gap-10 px-10">
         <h1 className="text-4xl">Log In</h1>
-        <form className="flex flex-col gap-1 text-lg">
+        <form action={action}
+              className="flex flex-col gap-1 text-lg">
           <label htmlFor="email">Email</label>
           <input type="email"
                  id="email"
@@ -16,6 +21,8 @@ export default function Login(){
                  placeholder="email..."
                  className="w-[15em] p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
           />
+          {state?.errors?.email && state.errors.email.map((error: string, id) => (
+              <li key={id} className="text-red-500">{error}</li>))}
           <label htmlFor="password">Password</label>
           <input type="password"
                  id="password"
@@ -24,17 +31,29 @@ export default function Login(){
                  placeholder="password..."
                  className="w-[15em] p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
           />
-          <motion.button
-              initial={{opacity: 0, scale: 0.9}}
-              animate={{opacity: 1, scale: 1}}
-              transition={{duration: 0.4, type: "tween", stiffness: 500, damping: 20}}
-              type="submit"
-              className="mt-4 w-max self-center rounded-2xl bg-violet-500 p-2 px-8 text-xl text-white transition hover:bg-violet-600">Submit
-          </motion.button>
-          <p className="mt-3 text-xl">
-            Don&apos;t have account? <Link href={"/register"} className="text-violet-500">Register</Link>
-          </p>
+          {state?.errors?.password && state.errors.password.map((error: string, id) => (
+              <li key={id} className="text-red-500">{error}</li>))}
+          {state?.message && <p className="text-red-500">{state.message}</p>}
+          <LoginButton/>
         </form>
+        <p className="mt-3 text-xl">
+          Don&apos;t have account? <Link href={"/register"} className="text-violet-500">Register</Link>
+        </p>
       </div>
+  )
+}
+
+export function LoginButton() {
+  const {pending} = useFormStatus();
+  return (
+      <motion.button
+          initial={{opacity: 0, scale: 0.9}}
+          animate={{opacity: 1, scale: 1}}
+          transition={{duration: 0.4, type: "tween", stiffness: 500, damping: 20}}
+          type="submit"
+          aria-disabled={pending}
+          className="mt-4 w-max self-center rounded-2xl bg-violet-500 p-2 px-8 text-xl text-white transition hover:bg-violet-600">
+        {pending ? "Logging..." : "Log In"}
+      </motion.button>
   )
 }

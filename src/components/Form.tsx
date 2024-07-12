@@ -1,7 +1,7 @@
 "use client"
 
 import {useState, useRef} from "react";
-import {addUrl} from "@/action/actions";
+import {addUrl} from "@/actions/actions";
 import {motion} from "framer-motion";
 import {z} from "zod";
 
