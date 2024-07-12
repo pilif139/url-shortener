@@ -20,12 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${radio_canada.className} bg-slate-200 min-h-screen flex flex-col items-center justify-center`}>
-      <header className="w-full flex items-center">
-        <Header/>
+      <body className={`${radio_canada.className} bg-slate-200 dark:bg-slate-800 dark:text-white min-h-screen flex flex-col justify-center gap-5`}>
+      <header className="w-full flex flex-col items-center">
         <Auth/>
+        <Header/>
       </header>
+      <main className="min-h-[65vh] flex items-center justify-center">
         {children}
+      </main>
         <Footer/>
       </body>
     </html>

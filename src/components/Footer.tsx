@@ -4,6 +4,7 @@ import {FaGithub} from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import {motion} from "framer-motion";
+import DarkModeToggler from "@/components/DarkModeToggler";
 
 const linkAnimation = {
     scale: [1, 1.1, 1],
@@ -19,7 +20,7 @@ export default function Footer(){
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.5}}
-          className="flex justify-center fixed bottom-0 text-5xl p-5 gap-3">
+          className="flex justify-center relative bottom-0 text-5xl p-5 gap-3">
         <motion.div whileHover={linkAnimation}>
           <Link
               href={"https://github.com/pilif139"} target="_blank" className="hover:text-gray-500 transition duration-500">
@@ -31,6 +32,9 @@ export default function Footer(){
             <FaLinkedin />
           </Link>
         </motion.div>
+        <div className="text-xl">
+          <DarkModeToggler/>
+        </div>
       </motion.div>
   )
 }
