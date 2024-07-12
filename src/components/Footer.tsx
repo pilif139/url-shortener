@@ -20,15 +20,15 @@ export default function Footer(){
           initial={{opacity: 0, y: 50}}
           animate={{opacity: 1, y: 0}}
           transition={{duration: 0.5}}
-          className="flex justify-center relative bottom-0 text-5xl p-5 gap-3">
+          className="relative bottom-0 flex justify-center gap-3 p-5 text-5xl">
         <motion.div whileHover={linkAnimation}>
           <Link
-              href={"https://github.com/pilif139"} target="_blank" className="hover:text-gray-500 transition duration-500">
+              href={"https://github.com/pilif139"} target="_blank" className="transition duration-500 hover:text-gray-500">
             <FaGithub/>
           </Link>
         </motion.div>
         <motion.div whileHover={linkAnimation}>
-          <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"} target="_blank" className="hover:text-gray-500 transition duration-500">
+          <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"} target="_blank" className="transition duration-500 hover:text-gray-500">
             <FaLinkedin />
           </Link>
         </motion.div>

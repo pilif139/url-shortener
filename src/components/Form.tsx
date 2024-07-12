@@ -59,14 +59,14 @@ export default function Form({setAlias, setIsLoading} : FormProps){
     setIsLoading(false);
   }
   return (
-        <form action={clientAction} className="flex flex-col gap-5 items-center">
+        <form action={clientAction} className="flex flex-col items-center gap-5">
           <motion.input
                   initial={{opacity: 0, x: -200}}
                   animate={{opacity: 1, x: 0}}
                   transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
                   type="text"
                   placeholder="Enter your url here..."
-                  className="p-2 rounded-2xl w-[15em] md:w-[30em] outline-none focus:bg-slate-100 transition dark:bg-slate-400 dark:placeholder:text-slate-800 dark:focus:bg-slate-300 dark:text-black"
+                  className="rounded-2xl p-2 outline-none transition w-[15em] focus:bg-slate-100 dark:placeholder:text-slate-800 dark:bg-slate-400 dark:text-black md:w-[30em] dark:focus:bg-slate-300"
                   name="url"
                   ref={urlRef}
           />
@@ -77,7 +77,7 @@ export default function Form({setAlias, setIsLoading} : FormProps){
                   transition={{duration: 0.2, type: "tween", stiffness: 500, damping: 20}}
                   type="text"
                   placeholder="Your optional alias..."
-                  className="p-2 rounded-2xl w-[15em] md:w-[30em] outline-none focus:bg-slate-100 transition dark:bg-slate-400 dark:placeholder:text-slate-800 dark:focus:bg-slate-300 dark:text-black"
+                  className="rounded-2xl p-2 outline-none transition w-[15em] focus:bg-slate-100 dark:placeholder:text-slate-800 dark:bg-slate-400 dark:text-black md:w-[30em] dark:focus:bg-slate-300"
                   name="alias"
                   ref={aliasRef}
           />
@@ -88,7 +88,7 @@ export default function Form({setAlias, setIsLoading} : FormProps){
                   transition={{duration: 0.4, type: "tween", stiffness: 500, damping: 20}}
                   type="submit"
                   onClick={() => setIsLoading(true)}
-                  className="bg-violet-500 p-2 px-8 rounded-2xl mx-4 text-white w-max hover:bg-violet-600 transition">Submit
+                  className="mx-4 w-max rounded-2xl bg-violet-500 p-2 px-8 text-white transition hover:bg-violet-600">Submit
           </motion.button>
         </form>
   )

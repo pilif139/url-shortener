@@ -37,7 +37,7 @@ function DarkModeToggler() {
   },[])
 
   return (
-      <button className="transition-colors dark:bg-gray-900 bg-indigo-500 text-white p-5 rounded-3xl absolute bottom-7 right-7 scale-[1.12]"
+      <button className="absolute right-7 bottom-7 rounded-3xl bg-indigo-500 p-5 text-white transition-colors scale-[1.12] dark:bg-gray-900"
               onClick={toggleTheme}
       >
         {theme === 'dark' ? <FaMoon/> : <FaSun />}

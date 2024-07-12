@@ -9,7 +9,7 @@ export default function AuthComponent(){
       <motion.div
           initial={{opacity: 0, scale: 0.5}}
           animate={{opacity: 1, scale: 1}}
-          className="md:absolute top-0 right-0 text-black hover:text-gray-600 dark:hover:text-gray-200 transition text-2xl  py-3 px-10 font-bold bg-slate-300 dark:bg-slate-600 dark:text-white w-full flex justify-center md:bg-transparent dark:md:bg-transparent md:w-fit">
+          className="top-0 right-0 flex w-full justify-center bg-slate-300 px-10 py-3 text-2xl font-bold text-black transition hover:text-gray-600 dark:bg-slate-600 dark:text-white md:absolute md:w-fit md:bg-transparent dark:hover:text-gray-200 dark:md:bg-transparent">
         <Link href={"/login"} className="flex items-center">Log In<CiLogin /></Link>
       </motion.div>
   )

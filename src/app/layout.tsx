@@ -13,20 +13,24 @@ export const metadata: Metadata = {
   description: "Simple URL shortener",
 };
 
+type LayoutProps = {
+    children: React.ReactNode;
+    modal: React.ReactNode;
+}
+
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children, modal
+}: Readonly<LayoutProps>) {
   return (
     <html lang="en">
       <body className={`${radio_canada.className} bg-slate-200 dark:bg-slate-800 dark:text-white min-h-screen flex flex-col justify-center gap-5`}>
-      <header className="w-full flex flex-col items-center">
+      <header className="flex w-full flex-col items-center">
         <Auth/>
         <Header/>
       </header>
-      <main className="min-h-[65vh] flex items-center justify-center">
+      <main className="flex items-center justify-center min-h-[65vh] flex-col">
         {children}
+        {modal}
       </main>
         <Footer/>
       </body>
