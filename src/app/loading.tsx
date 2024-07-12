@@ -12,8 +12,8 @@ export default function Loading(){
 
 
     return (
-        <dialog className="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent">
+        <div className="backdrop:bg-black/60 backdrop:backdrop-blur-sm absolute top-0 flex items-center justify-center">
             <RiseLoader loading={true} size={20} className="mt-20" color={spinnerTheme}/>
-        </dialog>
+        </div>
     )
 }
