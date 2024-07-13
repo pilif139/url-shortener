@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {useFormState, useFormStatus} from "react-dom";
 import {login} from "@/actions/login";
+import {RiseLoader} from "react-spinners";
 
 export default function Login(){
   const [state, action] = useFormState(login, undefined)
@@ -53,7 +54,7 @@ export function LoginButton() {
           type="submit"
           aria-disabled={pending}
           className="mt-4 w-max self-center rounded-2xl bg-violet-500 p-2 px-8 text-xl text-white transition hover:bg-violet-600">
-        {pending ? "Logging..." : "Log In"}
+        {pending ? <RiseLoader loading={pending} color="white"/> : "Log In"}
       </motion.button>
   )
 }

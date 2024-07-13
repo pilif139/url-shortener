@@ -4,6 +4,7 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import {useFormState, useFormStatus} from "react-dom";
 import {register} from "@/actions/register";
+import {RiseLoader} from "react-spinners";
 
 export default function Register(){
   const [state, action] = useFormState(register, undefined)
@@ -62,7 +63,7 @@ export function RegisterButton() {
           type="submit"
             aria-disabled={pending}
           className="mt-4 w-max self-center rounded-2xl bg-violet-500 p-2 px-8 text-xl text-white transition hover:bg-violet-600">
-        {pending ? "Registering..." : "Register"}
+        {pending ? <RiseLoader loading={pending} color="white"/> : "Register"}
       </motion.button>
   )
 }
