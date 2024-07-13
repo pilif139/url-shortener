@@ -1,4 +1,4 @@
-This is URL shortener Next.js app made with TypeScript, tailwindcss, prisma, zod for validation, and PostgreSQL for database. It is deployed on Vercel.
+This is URL shortener Next.js app made with TypeScript, tailwindcss, prisma, zod for validation, JWT for session auth, and PostgreSQL for database. It is deployed on Vercel.
 
 Development database is running in docker container.
 
