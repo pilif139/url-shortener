@@ -13,7 +13,7 @@ export default async function RegisterButtonText(){
   }
   if(isAuth){
     return (
-        <p className="flex items-center cursor-pointer gap-2 text-3xl">
+        <p className="flex items-center cursor-pointer gap-2 text-3xl transition">
           <ProfileMenu username={username}/>
         </p>
     )

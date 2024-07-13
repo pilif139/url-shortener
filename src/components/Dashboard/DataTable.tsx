@@ -29,11 +29,11 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
   })
 
   return (
-      <div className="border-4 rounded-lg border-slate-900 dark:border-slate-300">
+      <div>
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id} className="dark:hover:bg-slate-900 hover:bg-slate-300 bg-slate-300 dark:bg-slate-800">
+              <TableRow key={headerGroup.id} className="dark:hover:bg-slate-900 hover:bg-slate-300 bg-slate-300 dark:bg-slate-900">
                 {headerGroup.headers.map((header) => {
                 return (
                     <TableHead key={header.id} className="text-lg hover:bg-slate-400 dark:hover:bg-slate-950 transition text-center text-black">
