@@ -17,7 +17,7 @@ export default function TabsMenu({TabsContents}: TabsProps){
         ))}
       </TabsList>
       {TabsContents.map((tab, index) => (
-        <TabsContent key={index} value={tab.title} className="min-w-[70vw]">
+        <TabsContent key={index} value={tab.title} className="min-w-[80vw]">
           <tab.Component/>
         </TabsContent>
       ))}

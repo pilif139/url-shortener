@@ -3,6 +3,7 @@ import prisma from "@/db/prisma-client";
 import {verifySession} from "@/auth/session";
 import {DataTable} from "@/components/Dashboard/DataTable";
 import {columnsDefinitions} from "@/components/Dashboard/columnsDefinitions";
+import {Chart} from "@/components/DashboardCharts/Chart";
 
 export default async function DashboardPage(){
   const {userId} = await verifySession();
@@ -11,7 +12,8 @@ export default async function DashboardPage(){
       userId
     }
   });
-  const links = rawLinks.map(link => {
+
+  const dashboardLinks = rawLinks.map(link => {
         return {
           url: link.url,
           alias: link.alias,
@@ -20,19 +22,26 @@ export default async function DashboardPage(){
         }
   });
 
+  const chartLinks = rawLinks.map(link => {
+    return {
+      alias: link.alias,
+      clicks: link.clicks,
+    }
+  }).filter(link => link.clicks > 0);
+
   const DashboardContents = [
     {
       title: "Your Links",
-      Component: () => <DataTable columns={columnsDefinitions} data={links}/>
+      Component: () => <DataTable columns={columnsDefinitions} data={dashboardLinks}/>
     },
     {
       title: "Charts",
-      Component: () => <div>Charts</div>
+      Component: () => <Chart data={chartLinks}/>
     },
   ]
 
   return(
-    <div className="min-h-[60vh] w-[90vw] overflow-x-hidden">
+    <div className="min-h-[60vh] w-[95vw] overflow-x-hidden">
      <TabsMenu TabsContents={DashboardContents}/>
     </div>
   )
