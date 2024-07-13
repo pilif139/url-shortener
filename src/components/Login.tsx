@@ -54,7 +54,7 @@ export function LoginButton() {
           type="submit"
           aria-disabled={pending}
           className="mt-4 w-max self-center rounded-2xl bg-violet-500 p-2 px-8 text-xl text-white transition hover:bg-violet-600">
-        {pending ? <RiseLoader loading={pending} color="white"/> : "Log In"}
+        {pending ? <RiseLoader loading={pending} size={10} color="white"/> : "Log In"}
       </motion.button>
   )
 }
