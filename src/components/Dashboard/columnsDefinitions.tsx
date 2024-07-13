@@ -15,6 +15,7 @@ import {
 import {Button} from "@/components/ui/button";
 import deleteUrl from "@/actions/delete";
 import {toast} from "sonner";
+import { LuArrowUpDown } from "react-icons/lu";
 
 export type ShortLink = {
     url: string;
@@ -38,7 +39,19 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
     accessorKey: "alias",
   },
   {
-    header: "Clicks",
+    header: ({column})=>{
+      return (
+      <div className="flex items-center">
+        Clicks
+        <Button variant="ghost"
+                className="p-2 m-2"
+                onClick={() => {column.toggleSorting(column.getIsSorted() === "asc")}}
+        >
+          <LuArrowUpDown className="text-2xl"/>
+        </Button>
+      </div>
+      )
+    },
     accessorKey: "clicks",
   },
   {
