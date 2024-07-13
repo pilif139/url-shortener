@@ -1,6 +1,6 @@
-import {decrypt} from "@/auth/session";
-import {cookies} from 'next/headers';
+import {verifySession} from "@/auth/session";
 import {NextRequest, NextResponse} from "next/server";
+import {cookies} from "next/headers";
 
 const protectedRoutes = ['/dashboard'];
 
@@ -8,10 +8,10 @@ export default async function middleware(req: NextRequest){
   const path = req.nextUrl.pathname;
   const isProtected = protectedRoutes.includes(path);
 
-  const cookie = cookies().get('session')?.value;
-  const session = await decrypt(cookie);
+  const session = await verifySession()
 
   if(isProtected && !session?.userId) {
     return NextResponse.redirect(new URL('/login', req.url))
   }
+  return NextResponse.next()
 }

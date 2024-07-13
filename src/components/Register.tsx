@@ -12,14 +12,14 @@ export default function Register(){
       <div className="flex flex-col items-center gap-10 px-10">
         <h1 className="text-4xl">Sign Up</h1>
         <form action={action}
-              className="flex flex-col gap-1 text-lg w-[28em]">
+              className="flex flex-col gap-1 text-xl w-[28em]">
           <label htmlFor="username">Username</label>
           <input type="text"
                  id="username"
                  name="username"
                  required
                  placeholder="username..."
-                 className="w-full p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
+                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
           />
           {state?.errors?.username && state.errors.username.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
@@ -29,7 +29,7 @@ export default function Register(){
                  name="email"
                  required
                  placeholder="email..."
-                 className="w-full p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
+                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
           />
           {state?.errors?.email && state.errors.email.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
@@ -39,7 +39,7 @@ export default function Register(){
                  name="password"
                  required
                  placeholder="password..."
-                 className="w-full p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
+                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
           />
           {state?.errors?.password && state.errors.password.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}

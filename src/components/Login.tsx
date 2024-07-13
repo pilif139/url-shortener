@@ -12,14 +12,14 @@ export default function Login(){
       <div className="flex flex-col items-center gap-10 px-10">
         <h1 className="text-4xl">Log In</h1>
         <form action={action}
-              className="flex flex-col gap-1 text-lg">
+              className="flex flex-col gap-1 text-xl">
           <label htmlFor="email">Email</label>
           <input type="email"
                  id="email"
                  name="email"
                  required
                  placeholder="email..."
-                 className="w-[15em] p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
+                 className="w-[15em] p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
           />
           {state?.errors?.email && state.errors.email.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
@@ -29,7 +29,7 @@ export default function Login(){
                  name="password"
                  required
                  placeholder="password..."
-                 className="w-[15em] p-2 rounded-xl outline-none focus:bg-slate-200 transition text-black"
+                 className="w-[15em] p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
           />
           {state?.errors?.password && state.errors.password.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
