@@ -9,7 +9,7 @@ const urlSchema = z.object({
   url: z.string()
       .url({message: "Invalid URL!"}),
   alias: z.string()
-      .max(40, {message: "To long alias!"})
+      .max(20, {message: "To long alias!"})
       .optional()
 })
 

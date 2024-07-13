@@ -16,7 +16,7 @@ export default function ActionsButton({row}: { row: Row<ShortLink>}){
   return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="h-8 w-8 p-0 flex items-center">
+          <Button variant="ghost" className="h-8 w-full p-0 flex items-center justify-center">
             <span className="sr-only">Open menu</span>
             <IoMdMore className="h-8 w-8"/>
           </Button>
@@ -27,7 +27,7 @@ export default function ActionsButton({row}: { row: Row<ShortLink>}){
               <button type="submit" className="text-xl" onClick={handleToaster}>Delete</button>
             </form>
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          <DropdownMenuItem className="text-xl">
             <CopyOption row={row}/>
           </DropdownMenuItem>
         </DropdownMenuContent>

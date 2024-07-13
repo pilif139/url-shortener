@@ -32,7 +32,7 @@ export default async function DashboardPage(){
   ]
 
   return(
-    <div className="min-h-[60vh] w-full overflow-x-hidden">
+    <div className="min-h-[60vh] w-[90vw] overflow-x-hidden">
      <TabsMenu TabsContents={DashboardContents}/>
     </div>
   )

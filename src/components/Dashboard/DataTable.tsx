@@ -9,6 +9,8 @@ import {
   getPaginationRowModel,
   SortingState,
   getSortedRowModel,
+  ColumnFiltersState,
+  getFilteredRowModel,
 } from "@tanstack/react-table"
 
 import {
@@ -28,6 +30,7 @@ type DataTableProps<TData, TValue> = {
 
 export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TValue>){
   const [sorting,setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
     data,
@@ -36,13 +39,24 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
     getPaginationRowModel: getPaginationRowModel(),
     onSortingChange: setSorting,
     getSortedRowModel: getSortedRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
         sorting,
+        columnFilters,
     }
   })
 
   return (
       <div>
+        <div className="flex items-center py-4">
+          <input type="text"
+                 placeholder="Filter by alias..."
+                 value={(table.getColumn("alias")?.getFilterValue() as string) ?? ""}
+                 onChange={(e) => table.getColumn("alias")?.setFilterValue(e.target.value)}
+                 className="max-w-sm p-2 rounded-xl text-black outline-none dark:bg-slate-900 dark:text-white transition focus:dark:bg-slate-700 bg-slate-300 focus:bg-slate-100"
+          />
+        </div>
         <div>
           <Table>
             <TableHeader>

@@ -1,7 +1,6 @@
 'use client'
 
 import {ColumnDef} from '@tanstack/react-table'
-import CopyButton from "@/components/CopyButton";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 import { LuArrowUpDown } from "react-icons/lu";
