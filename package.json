@@ -11,9 +11,14 @@
   },
   "dependencies": {
     "@prisma/client": "^5.16.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-tabs": "^1.1.0",
     "bcrypt": "^5.1.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.0",
     "jose": "^5.6.3",
+    "lucide-react": "^0.408.0",
     "next": "14.2.5",
     "prisma": "^5.16.2",
     "react": "^18",
@@ -21,6 +26,8 @@
     "react-icons": "^5.2.1",
     "react-qr-code": "^2.0.15",
     "react-spinners": "^0.14.1",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
