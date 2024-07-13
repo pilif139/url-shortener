@@ -5,6 +5,7 @@ import QRCode from "react-qr-code";
 import {motion} from "framer-motion";
 import {useState, useEffect} from "react";
 import { FiCheck } from "react-icons/fi";
+import CopyButton from "@/components/CopyButton";
 
 type ShortenedLinkProps = {
   alias: string
@@ -38,6 +39,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
         <Link href={link} className="mb-5 text-indigo-700 dark:text-indigo-500 underline transition hover:text-violet-700 dark:hover:text-indigo-400">
           {link}
         </Link>
+        <CopyButton text={link}/>
         <QRCode value={link} size={qrSize}/>
       </motion.div>
   )
