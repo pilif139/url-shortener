@@ -1,6 +1,7 @@
 'use server'
 
 import prisma from '@/db/prisma-client'
+import {verifySession} from "@/auth/session";
 
 function generateAlias(){
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -23,6 +24,7 @@ async function ensureUniqueAlias(providedAlias: string){
 
 export async function addUrl(formData: FormData){
   const alias = await ensureUniqueAlias(formData.get("alias") as string);
+  const {userId} = await verifySession();
 
   if(!await prisma.shortUrl.findUnique({
     where: {
@@ -32,7 +34,8 @@ export async function addUrl(formData: FormData){
     await prisma.shortUrl.create({
       data: {
         url: formData.get("url") as string,
-        alias: alias
+        alias: alias,
+        userId: userId ? userId : undefined
       }
     })
     return {alias, error: undefined}

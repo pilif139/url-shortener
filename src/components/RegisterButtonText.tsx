@@ -19,7 +19,10 @@ export default async function RegisterButtonText(){
   }
   else{
     return (
-        <Link href={"/register"} className="flex items-center">Sign up<CiLogin /></Link>
+        <div className="flex items-center gap-4">
+          <Link href={"/register"} className="text-white bg-slate-800 dark:bg-slate-200 dark:text-black p-2 rounded-xl transition">Sign up</Link>
+          <Link href={"/login"} className="flex items-center">Login<CiLogin/></Link>
+        </div>
     )
   }
 
