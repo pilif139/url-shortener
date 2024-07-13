@@ -3,19 +3,9 @@
 import {ColumnDef} from '@tanstack/react-table'
 import CopyButton from "@/components/CopyButton";
 import Link from "next/link";
-import { IoMdMore } from "react-icons/io";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import {Button} from "@/components/ui/button";
-import deleteUrl from "@/actions/delete";
-import {toast} from "sonner";
 import { LuArrowUpDown } from "react-icons/lu";
+import ActionsButton from "@/components/Dashboard/ActionsButton";
 
 export type ShortLink = {
     url: string;
@@ -26,7 +16,11 @@ export type ShortLink = {
 
 export const columnsDefinitions: ColumnDef<ShortLink>[] = [
   {
-    header: "URL",
+    header: ({column})=>{
+      return(
+          <div className="min-w-[30em]">URL</div>
+      )
+    },
     accessorKey: "url",
     cell: ({row}) => {
       return (
@@ -41,7 +35,7 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
   {
     header: ({column})=>{
       return (
-      <div className="flex items-center">
+      <div className="flex items-center justify-center">
         Clicks
         <Button variant="ghost"
                 className="p-2 m-2"
@@ -59,51 +53,7 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
     accessorKey: "createdAt",
   },
   {
-    header: "Short URL",
-    accessorKey: "short url",
-    cell: ({row})=>{
-      let protocol = undefined
-      let hostname = undefined
-      let port = undefined
-      if (typeof window !== 'undefined') {
-        protocol = window.location.protocol;
-        hostname = window.location.hostname;
-        port = window.location.port;
-      }
-      const portPart = port ? `:${port}` : '';
-      const shortLink = `${protocol}//${hostname}${portPart}/${row.original.alias}`;
-      return (
-          <div className="w-full flex justify-center">
-            <CopyButton text={shortLink}/>
-          </div>
-      )
-    }
-  },
-  {
     id: "actions",
-    cell: ({row}) => {
-      const handleToaster = () =>{
-        toast.warning("Link deleted!")
-      }
-
-      return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0 flex items-center">
-                <span className="sr-only">Open menu</span>
-                <IoMdMore className="h-8 w-8"/>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>
-                <form action={()=>deleteUrl(row.original.alias)}>
-                  <button type="submit" className="text-xl" onClick={handleToaster}>Delete</button>
-                </form>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-      )
-    }
-
+    cell: ({row})=> ActionsButton({row})
   }
 ]
