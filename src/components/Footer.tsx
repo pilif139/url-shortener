@@ -19,7 +19,7 @@ export default function Footer(){
   return (
       <div
           className="relative bottom-0 flex justify-center text-5xl">
-        <Toaster position="bottom-left" closeButton/>
+        <Toaster position="bottom-left"/>
         <motion.div
             initial={{opacity: 0, y: 50}}
             animate={{opacity: 1, y: 0}}

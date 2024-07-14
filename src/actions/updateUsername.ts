@@ -8,6 +8,9 @@ export async function updateUsername(formData: FormData, userId: string){
     if(username.length < 3){
         return {errors: "Username must be at least 3 characters long."};
     }
+    if(username.length > 30){
+        return {errors: "Username must be at most 30 characters long."};
+    }
     await prisma.user.update({
         where: {id: userId},
         data: {username: username}
