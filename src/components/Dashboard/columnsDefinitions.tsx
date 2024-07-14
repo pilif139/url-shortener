@@ -17,7 +17,7 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
   {
     header: ({column})=>{
       return(
-          <div className="min-w-[30em]">URL</div>
+          <div className="md:min-w-[30em] w-[15em]">URL</div>
       )
     },
     accessorKey: "url",
