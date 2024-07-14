@@ -20,7 +20,7 @@ export default function Header() {
       >
         <Link href={"/"} onClick={handleClick}>
           <h1 className="rounded-full p-5 text-5xl transition duration-500 hover:bg-slate-300 md:text-6xl dark:hover:bg-slate-700">
-            <span className="text-violet-500 transition hover:text-violet-800">URL</span>
+            <span className="text-violet-500 transition hover:text-violet-700 dark:hover:text-violet-400">URL</span>
             &nbsp;Shortener
           </h1>
         </Link>

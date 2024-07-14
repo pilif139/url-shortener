@@ -10,7 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import {User} from "@/components/Profile/Profile";
+import {User} from "@prisma/client";
 import {updateUsername} from "@/actions/updateUsername";
 import {FormEvent, useState} from "react";
 
@@ -32,10 +32,9 @@ export default function UsernameSheet({user}: {user: User}) {
 
   return(
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <nav className="flex justify-between items-center gap-5">
-          <p className="text-3xl dark:bg-slate-700 rounded-xl min-w-[10em] max-w-[25em] flex justify-between items-center bg-slate-300 hover:bg-slate-400 dark:hover:bg-slate-950 transition">
-            <span className="bg-slate-400 dark:bg-slate-900 rounded-xl p-3">Username</span>
-            <span className="p-3">{user.username}</span>
+        <nav className="flex justify-between items-center gap-5 text-2xl">
+          <p className="p-3 border-4 border-slate-400 dark:border-slate-950 rounded-xl bg-slate-300 dark:bg-slate-900 transition">
+            <span className="text-gray-500 dark:text-gray-200 transition">Username:</span> {user.username}
           </p>
           <SheetTrigger asChild>
             <button onClick={()=>setIsOpen(true)} className="bg-violet-500 px-5 py-3 text-white rounded-2xl text-2xl hover:bg-violet-600 transition">Change</button>
