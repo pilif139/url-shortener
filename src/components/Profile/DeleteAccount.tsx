@@ -21,7 +21,7 @@ export default function DeleteAccount({user}: {user: User}){
               <button type="submit" className="bg-red-800 hover:bg-red-900 p-4 text-white rounded-2xl font-bold text-xl w-[10em] transition duration-500">Delete</button>
             </DialogTrigger>
           </div>
-        <DialogContent>
+        <DialogContent className="dark:bg-slate-900 bg-slate-300">
           <DialogHeader>
             <DialogTitle className="text-2xl">Are you absolutely sure?</DialogTitle>
             <DialogDescription className="text-xl">

@@ -18,6 +18,7 @@ export async function register(state: FormState, formData: FormData): Promise<Fo
 
     const {username, email, password} = validateFields.data;
 
+    // can add more validation here for example if username is already taken
     const existingUser = await prisma.user.findFirst({
       where: {
         email: email

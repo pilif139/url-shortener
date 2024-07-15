@@ -42,6 +42,7 @@ export function Chart({data}: {data: {alias: string, clicks: number}[]}) {
               <XAxis dataKey="alias" scale="point" padding={{ left: 50, right: 50 }} style={{fontSize: '20px'}}/>
               <Tooltip contentStyle={{
                 display: 'flex',
+                flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 color: 'black',
