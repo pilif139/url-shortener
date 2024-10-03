@@ -11,10 +11,10 @@ type TabsProps = {
 
 export default function TabsMenu({TabsContents}: TabsProps){
   return (
-    <Tabs defaultValue="Your Links" className="flex items-center flex-col">
-      <TabsList className="dark:bg-slate-900 grid h-max p-[0.4rem] grid-cols-2">
+    <Tabs defaultValue="Your Links" className="flex flex-col items-center">
+      <TabsList className="grid h-max grid-cols-2 p-[0.4rem] dark:bg-slate-900">
         {TabsContents.map((tab, index) => (
-          <TabsTrigger key={index} value={tab.title} className="dark:bg-slate-800 w-[10em] text-xl">{tab.title}</TabsTrigger>
+          <TabsTrigger key={index} value={tab.title} className="text-xl w-[10em] dark:bg-slate-800">{tab.title}</TabsTrigger>
         ))}
       </TabsList>
       {TabsContents.map((tab, index) => (

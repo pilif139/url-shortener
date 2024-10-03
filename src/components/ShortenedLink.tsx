@@ -26,13 +26,13 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
           initial={{opacity: 0, scale: 0.90}}
           animate={{opacity: 1, scale: 1}}
           transition={{duration: 0.5}}
-          className="mt-5 flex w-max flex-col items-center justify-center justify-self-end rounded-3xl bg-gray-100 dark:bg-slate-600 p-4 transition hover:bg-gray-300 dark:hover:bg-slate-700 md:p-8 gap-2">
+          className="mt-5 flex w-max flex-col items-center justify-center gap-2 justify-self-end rounded-3xl bg-gray-100 p-4 transition hover:bg-gray-300 dark:bg-slate-600 md:p-8 dark:hover:bg-slate-700">
         <div className="mb-3 flex items-center gap-2 rounded-xl bg-green-400 p-4 text-gray-700 transition hover:bg-green-500">
           <FiCheck />
           <h2>Successfully generated link!</h2>
           <CopyButton text={link}/>
         </div>
-        <Link href={link} className="mb-5 text-indigo-700 dark:text-indigo-500 underline transition hover:text-violet-700 dark:hover:text-indigo-400">
+        <Link href={link} className="mb-5 text-indigo-700 underline transition hover:text-violet-700 dark:text-indigo-500 dark:hover:text-indigo-400">
           {link}
         </Link>
         <QRCode value={link} size={qrSize}/>

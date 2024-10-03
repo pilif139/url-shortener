@@ -17,13 +17,13 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
   {
     header: ({column})=>{
       return(
-          <div className="md:min-w-[30em] w-[15em]">URL</div>
+          <div className="w-[15em] md:min-w-[30em]">URL</div>
       )
     },
     accessorKey: "url",
     cell: ({row}) => {
       return (
-          <Link target="_blank" href={row.original.url} className="w-ful flex justify-start hover:underline">{row.original.url}</Link>
+          <Link target="_blank" href={row.original.url} className="flex justify-start w-ful hover:underline">{row.original.url}</Link>
       )
     }
   },
@@ -37,7 +37,7 @@ export const columnsDefinitions: ColumnDef<ShortLink>[] = [
       <div className="flex items-center justify-center">
         Clicks
         <Button variant="ghost"
-                className="p-2 m-2"
+                className="m-2 p-2"
                 onClick={() => {column.toggleSorting(column.getIsSorted() === "asc")}}
         >
           <LuArrowUpDown className="text-2xl"/>

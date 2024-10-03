@@ -16,7 +16,7 @@ export default function ActionsButton({row}: { row: Row<ShortLink>}){
   return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="h-8 w-full p-0 flex items-center justify-center">
+          <Button variant="ghost" className="flex h-8 w-full items-center justify-center p-0">
             <span className="sr-only">Open menu</span>
             <IoMdMore className="h-8 w-8"/>
           </Button>

@@ -28,7 +28,7 @@ export default function RootLayout({
         <RegisterButton/>
         <Header/>
       </header>
-      <main className="flex items-center justify-center min-h-[65vh] flex-col">
+      <main className="flex flex-col items-center justify-center min-h-[65vh]">
         {children}
         {modal}
       </main>

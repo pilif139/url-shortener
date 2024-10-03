@@ -15,13 +15,13 @@ export default function DeleteAccount({user}: {user: User}){
 
   return(
       <Dialog>
-          <div className="md:w-[40em] w-[20em] bg-slate-300 p-8 border-8 border-slate-400 dark:border-slate-950 rounded-xl dark:bg-slate-900 transition flex flex-col gap-5">
-            <h1 className="text-2xl text-red-600 font-bold">Delete your account forever</h1>
+          <div className="flex flex-col gap-5 rounded-xl border-8 border-slate-400 bg-slate-300 p-8 transition w-[20em] dark:border-slate-950 dark:bg-slate-900 md:w-[40em]">
+            <h1 className="text-2xl font-bold text-red-600">Delete your account forever</h1>
             <DialogTrigger asChild>
-              <button type="submit" className="bg-red-800 hover:bg-red-900 p-4 text-white rounded-2xl font-bold text-xl w-[10em] transition duration-500">Delete</button>
+              <button type="submit" className="rounded-2xl bg-red-800 p-4 text-xl font-bold text-white transition duration-500 w-[10em] hover:bg-red-900">Delete</button>
             </DialogTrigger>
           </div>
-        <DialogContent className="dark:bg-slate-900 bg-slate-300">
+        <DialogContent className="bg-slate-300 dark:bg-slate-900">
           <DialogHeader>
             <DialogTitle className="text-2xl">Are you absolutely sure?</DialogTitle>
             <DialogDescription className="text-xl">
@@ -29,12 +29,12 @@ export default function DeleteAccount({user}: {user: User}){
               and remove your data from our servers.
             </DialogDescription>
           </DialogHeader>
-          <DialogFooter className="w-full flex justify-between">
+          <DialogFooter className="flex w-full justify-between">
             <DialogClose asChild>
-              <button type="submit" className="bg-red-800 hover:bg-red-900 p-4 text-white rounded-2xl font-bold text-xl transition duration-500 px-10">No</button>
+              <button type="submit" className="rounded-2xl bg-red-800 p-4 px-10 text-xl font-bold text-white transition duration-500 hover:bg-red-900">No</button>
             </DialogClose>
             <DialogClose asChild>
-              <button type="submit" className="bg-green-800 hover:bg-green-900 p-4 text-white rounded-2xl font-bold text-xl transition duration-500 px-10" onClick={()=>deleteAccount(user.id)}>Yes</button>
+              <button type="submit" className="rounded-2xl bg-green-800 p-4 px-10 text-xl font-bold text-white transition duration-500 hover:bg-green-900" onClick={()=>deleteAccount(user.id)}>Yes</button>
             </DialogClose>
           </DialogFooter>
         </DialogContent>

@@ -54,7 +54,7 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
                  placeholder="Filter by alias..."
                  value={(table.getColumn("alias")?.getFilterValue() as string) ?? ""}
                  onChange={(e) => table.getColumn("alias")?.setFilterValue(e.target.value)}
-                 className="max-w-sm p-2 rounded-xl text-black outline-none dark:bg-slate-900 dark:text-white transition focus:dark:bg-slate-700 bg-slate-300 focus:bg-slate-100"
+                 className="max-w-sm rounded-xl bg-slate-300 p-2 text-black outline-none transition focus:bg-slate-100 dark:bg-slate-900 dark:text-white focus:dark:bg-slate-700"
           />
         </div>
         <div>
@@ -62,11 +62,11 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}
-                            className="dark:hover:bg-slate-900 hover:bg-slate-300 bg-slate-300 dark:bg-slate-900">
+                            className="bg-slate-300 hover:bg-slate-300 dark:bg-slate-900 dark:hover:bg-slate-900">
                     {headerGroup.headers.map((header) => {
                       return (
                           <TableHead key={header.id}
-                                     className="text-lg hover:bg-slate-400 dark:hover:bg-slate-950 transition text-center text-black">
+                                     className="text-center text-lg text-black transition hover:bg-slate-400 dark:hover:bg-slate-950">
                             {header.isPlaceholder ? null : (
                                 flexRender(header.column.columnDef.header, header.getContext()
                                 ))}
@@ -87,7 +87,7 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
                       >
                         {row.getVisibleCells().map((cell) => (
                             <TableCell key={cell.id}
-                                       className="text-lg hover:bg-slate-100 dark:hover:bg-slate-950 transition text-center">
+                                       className="text-center text-lg transition hover:bg-slate-100 dark:hover:bg-slate-950">
                               {flexRender(cell.column.columnDef.cell, cell.getContext())}
                             </TableCell>
                         ))}
@@ -103,13 +103,13 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
             </TableBody>
           </Table>
         </div>
-        <div className="flex items-center justify-end space-x-2 py-4">
+        <div className="flex items-center justify-end py-4 space-x-2">
           <Button
               variant="outline"
               size="sm"
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
-              className="hover:bg-slate-300 dark:bg-slate-900 dark:hover:bg-slate-950 cursor-pointer"
+              className="cursor-pointer hover:bg-slate-300 dark:bg-slate-900 dark:hover:bg-slate-950"
           >
             Previous
           </Button>
@@ -118,7 +118,7 @@ export function DataTable<TData,TValue>({columns, data}: DataTableProps<TData,TV
               size="sm"
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
-              className="hover:bg-slate-300 dark:bg-slate-900 dark:hover:bg-slate-950 cursor-pointer"
+              className="cursor-pointer hover:bg-slate-300 dark:bg-slate-900 dark:hover:bg-slate-950"
           >
             Next
           </Button>

@@ -8,8 +8,8 @@ type ProfileProps = {
 
 export default function Profile({user}: ProfileProps){
   return (
-      <div className="min-h-[65vh] flex flex-col items-center gap-6">
-        <h1 className="text-5xl mb-5">Your Profile</h1>
+      <div className="flex flex-col items-center gap-6 min-h-[65vh]">
+        <h1 className="mb-5 text-5xl">Your Profile</h1>
         <UsernameSheet user={user}/>
         <DeleteAccount user={user}/>
       </div>

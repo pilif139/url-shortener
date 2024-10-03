@@ -24,8 +24,8 @@ export default function Modal({children} : ModalProps){
         ref={dialogRef}
         onClick={closeDialog}
         onClose={closeDialog}
-        className="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent">
-      <div className="bg-slate-200 dark:bg-slate-800 p-14 rounded-2xl dark:text-white shadow-2xl">
+        className="bg-transparent backdrop:bg-black/60 backdrop:backdrop-blur-sm">
+      <div className="rounded-2xl bg-slate-200 p-14 shadow-2xl dark:bg-slate-800 dark:text-white">
         {children}
       </div>
     </dialog>

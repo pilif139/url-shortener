@@ -15,7 +15,7 @@ export default function CopyButton({text}: {text: string}) {
 
   return (
       <button onClick={() => copyToClipboard(text)}
-              className="bg-violet-500 text-xl p-2 rounded-xl hover:bg-violet-600 text-white">
+              className="rounded-xl bg-violet-500 p-2 text-xl text-white hover:bg-violet-600">
         {isCopied ? "Copied!" : "Copy"}
       </button>
   );

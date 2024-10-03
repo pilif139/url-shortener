@@ -13,7 +13,7 @@ export default async function RegisterButtonText(){
   }
   if(isAuth){
     return (
-        <p className="flex items-center cursor-pointer gap-2 text-3xl transition">
+        <p className="flex cursor-pointer items-center gap-2 text-3xl transition">
           <ProfileMenu username={username}/>
         </p>
     )
@@ -21,8 +21,8 @@ export default async function RegisterButtonText(){
   else{
     return (
         <div className="flex items-center gap-4">
-          <Link href={"/register"} className="text-white bg-slate-800 dark:bg-slate-200 dark:text-black p-2 rounded-xl transition hover:bg-slate-900 dark:hover:bg-slate-100">Sign up</Link>
-          <Link href={"/login"} className="flex items-center border-2 border-slate-800 dark:border-slate-200 p-2 rounded-xl dark:bg-slate-900 bg-slate-300 hover:bg-slate-200 hover:dark:bg-slate-800 text-black dark:text-white transition">Login<CiLogin/></Link>
+          <Link href={"/register"} className="rounded-xl bg-slate-800 p-2 text-white transition hover:bg-slate-900 dark:bg-slate-200 dark:text-black dark:hover:bg-slate-100">Sign up</Link>
+          <Link href={"/login"} className="flex items-center rounded-xl border-2 border-slate-800 bg-slate-300 p-2 text-black transition hover:bg-slate-200 dark:border-slate-200 dark:bg-slate-900 dark:text-white hover:dark:bg-slate-800">Login<CiLogin/></Link>
         </div>
     )
   }

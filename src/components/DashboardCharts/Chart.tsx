@@ -25,8 +25,8 @@ export function Chart({data}: {data: {alias: string, clicks: number}[]}) {
 
   return (
       <div className="w-full">
-        <h1 className="w-full text-center text-2xl my-5">Your aliases</h1>
-          <ChartContainer config={chartConfig} className="w-full h-[70vh] bg-slate-300 dark:bg-slate-900 p-10 rounded-2xl">
+        <h1 className="my-5 w-full text-center text-2xl">Your aliases</h1>
+          <ChartContainer config={chartConfig} className="w-full rounded-2xl bg-slate-300 p-10 h-[70vh] dark:bg-slate-900">
             <BarChart
                 width={500}
                 height={300}

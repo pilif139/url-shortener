@@ -32,12 +32,12 @@ export default function UsernameSheet({user}: {user: User}) {
 
   return(
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <nav className="flex justify-between items-center gap-5 text-2xl">
-          <p className="p-3 border-4 border-slate-400 dark:border-slate-950 rounded-xl bg-slate-300 dark:bg-slate-900 transition">
-            <span className="text-gray-500 dark:text-gray-200 transition">Username:</span> {user.username}
+        <nav className="flex items-center justify-between gap-5 text-2xl">
+          <p className="rounded-xl border-4 border-slate-400 bg-slate-300 p-3 transition dark:border-slate-950 dark:bg-slate-900">
+            <span className="text-gray-500 transition dark:text-gray-200">Username:</span> {user.username}
           </p>
           <SheetTrigger asChild>
-            <button onClick={()=>setIsOpen(true)} className="bg-violet-500 px-5 py-3 text-white rounded-2xl text-2xl hover:bg-violet-600 transition">Change</button>
+            <button onClick={()=>setIsOpen(true)} className="rounded-2xl bg-violet-500 px-5 py-3 text-2xl text-white transition hover:bg-violet-600">Change</button>
           </SheetTrigger>
         </nav>
 
@@ -52,11 +52,11 @@ export default function UsernameSheet({user}: {user: User}) {
           </SheetDescription>
           <form onSubmit={handleSubmit}>
             <input type="text"
-                   className="w-full p-3 border-2 border-gray-300 dark:border-gray-700 rounded-xl dark:text-black mt-4 outline-none focus:bg-slate-100 transition duration-500" name="username"
+                   className="mt-4 w-full rounded-xl border-2 border-gray-300 p-3 outline-none transition duration-500 focus:bg-slate-100 dark:border-gray-700 dark:text-black" name="username"
                    defaultValue={user.username}/>
             {formErrors && <p className="text-red-500">{formErrors}</p>}
               <button type="submit"
-                      className="text-black border-2 border-gray-300 dark:border-gray-700 px-5 py-2 bg-slate-300 rounded-xl mt-3 hover:bg-slate-400 transition duration-500">Submit
+                      className="mt-3 rounded-xl border-2 border-gray-300 bg-slate-300 px-5 py-2 text-black transition duration-500 hover:bg-slate-400 dark:border-gray-700">Submit
               </button>
           </form>
         </SheetContent>

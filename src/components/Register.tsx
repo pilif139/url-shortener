@@ -20,7 +20,7 @@ export default function Register(){
                  name="username"
                  required
                  placeholder="username..."
-                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
+                 className="w-full rounded-xl p-2 text-black outline-none transition focus:bg-slate-100 dark:focus:bg-slate-200"
           />
           {state?.errors?.username && state.errors.username.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
@@ -30,7 +30,7 @@ export default function Register(){
                  name="email"
                  required
                  placeholder="email..."
-                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
+                 className="w-full rounded-xl p-2 text-black outline-none transition focus:bg-slate-100 dark:focus:bg-slate-200"
           />
           {state?.errors?.email && state.errors.email.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
@@ -40,7 +40,7 @@ export default function Register(){
                  name="password"
                  required
                  placeholder="password..."
-                 className="w-full p-2 rounded-xl outline-none dark:focus:bg-slate-200 focus:bg-slate-100 transition text-black"
+                 className="w-full rounded-xl p-2 text-black outline-none transition focus:bg-slate-100 dark:focus:bg-slate-200"
           />
           {state?.errors?.password && state.errors.password.map((error: string, id) => (
               <li key={id} className="text-red-500">{error}</li>))}
