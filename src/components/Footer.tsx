@@ -27,14 +27,20 @@ export default function Footer(){
             className="relative bottom-0 flex justify-between gap-3 p-5 text-5xl">
           <motion.div whileHover={linkAnimation}>
             <Link
-                href={"https://github.com/pilif139"} target="_blank"
-                className="transition duration-500 hover:text-gray-500">
+                href={"https://github.com/pilif139"}
+                target="_blank"
+                className="transition duration-500 hover:text-gray-500"
+                aria-label="Github Link"
+            >
               <FaGithub/>
             </Link>
           </motion.div>
           <motion.div whileHover={linkAnimation}>
-            <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"} target="_blank"
-                  className="transition duration-500 hover:text-gray-500">
+            <Link href={"https://www.linkedin.com/in/filip-kasperski-b80a8b310/"}
+                  target="_blank"
+                  className="transition duration-500 hover:text-gray-500"
+                  aria-label="Linkedin Link"
+            >
               <FaLinkedin/>
             </Link>
           </motion.div>
