@@ -14,9 +14,13 @@ type ShortenedLinkProps = {
 export default function ShortenedLink({alias} : ShortenedLinkProps){
 
     //handle resizing for mobiles
-    const [qrSize, setQrSize] = useState<number>(window.innerWidth > 768 ? 250 : 200);
+    const [qrSize, setQrSize] = useState<number>(window.innerWidth > 768 ? 200 : 150);
     useEffect(() => {
-      setQrSize(window.innerWidth > 768 ? 200 : 150);
+      const handleResize = () => {
+        setQrSize(window.innerWidth > 768 ? 200 : 150);
+      }
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }, []);
 
   const link = window.location.href+alias;
@@ -35,7 +39,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
         <Link href={link} className="mb-5 text-indigo-700 underline transition hover:text-violet-700 dark:text-indigo-500 dark:hover:text-indigo-400">
           {link}
         </Link>
-        <QRCode value={link} size={qrSize}/>
+        <QRCode value={link} size={qrSize} role="img"/>
       </motion.div>
   )
 }
