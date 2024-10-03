@@ -15,7 +15,6 @@ export async function encrypt(payload: SessionPayload){
         .setExpirationTime('168h')
         .sign(key);
 }
-
 export async function decrypt(session: string | undefined = ''){
     try {
         const {payload} = await jwtVerify(session, key, {
@@ -26,7 +25,6 @@ export async function decrypt(session: string | undefined = ''){
         return null;
     }
 }
-
 export async function createSession(userId: string){
   const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7);
   const session = await encrypt({userId, expiresAt});

@@ -23,7 +23,7 @@ export default function Modal({children} : ModalProps){
     <dialog
         ref={dialogRef}
         onClick={closeDialog}
-        onClose={router.back}
+        onClose={closeDialog}
         className="backdrop:bg-black/60 backdrop:backdrop-blur-sm bg-transparent">
       <div className="bg-slate-200 dark:bg-slate-800 p-14 rounded-2xl dark:text-white shadow-2xl">
         {children}

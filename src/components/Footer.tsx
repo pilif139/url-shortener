@@ -17,7 +17,7 @@ const linkAnimation = {
 
 export default function Footer(){
   return (
-      <div
+      <footer
           className="relative bottom-0 flex justify-center text-5xl">
         <Toaster position="bottom-left"/>
         <motion.div
@@ -42,6 +42,6 @@ export default function Footer(){
         <div className="text-xl">
           <DarkModeToggler/>
         </div>
-      </div>
+      </footer>
   )
 }
