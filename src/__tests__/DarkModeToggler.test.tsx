@@ -4,9 +4,8 @@ import {act} from "react";
 
 describe("Dark Mode Toggler", ()=>{
   it("correctly renders a button", ()=>{
-    render(<DarkModeToggler />);
-    const button = screen.getByRole('button');
-    expect(button).toBeInTheDocument();
+    const {container} = render(<DarkModeToggler />);
+    expect(container).toMatchSnapshot();
   })
 
   it("correctly toggles the theme", ()=>{

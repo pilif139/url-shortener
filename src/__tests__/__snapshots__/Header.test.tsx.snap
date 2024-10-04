@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should render correctly header 1`] = `
+<div>
+  <header
+    class="flex w-full justify-center md:p-10"
+    style="opacity: 0; will-change: opacity,transform; transform: translateY(-50px);"
+  >
+    <a
+      href="/"
+    >
+      <h1
+        class="rounded-full p-5 text-5xl transition duration-500 hover:bg-slate-300 md:text-6xl dark:hover:bg-slate-700"
+      >
+        <span
+          class="text-violet-500 transition hover:text-violet-700 dark:hover:text-violet-400"
+        >
+          URL
+        </span>
+         Shortener
+      </h1>
+    </a>
+  </header>
+</div>
+`;

@@ -8,10 +8,9 @@ describe("Header Component", ()=>{
         expect(screen.getByRole("banner")).toBeInTheDocument();
     })
 
-    it("should render the heading with correct text", () => {
-        render(<Header />);
-        const header = screen.getByRole("heading", {name: /URL Shortener/i});
-        expect(header).toBeInTheDocument();
+    it("should render correctly header", () => {
+        const {container} = render(<Header />);
+        expect(container).toMatchSnapshot();
     });
 
     it("should have a link to the home page", () => {

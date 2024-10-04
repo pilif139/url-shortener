@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyButton should render CopyButton 1`] = `
+<div>
+  <button
+    class="rounded-xl bg-violet-500 p-2 text-xl text-white hover:bg-violet-600"
+  >
+    Copy
+  </button>
+</div>
+`;

@@ -19,9 +19,8 @@ describe("CopyButton", () => {
   });
 
   it("should render CopyButton", () => {
-    render(<CopyButton text="Hello, World!" />);
-    expect(screen.getByRole("button")).toBeInTheDocument();
-    expect(screen.getByText("Copy")).toBeInTheDocument();
+    const {container} = render(<CopyButton text="Hello, World!" />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render Copied! when clicked", async () => {

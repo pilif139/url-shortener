@@ -24,7 +24,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
       return () => window.removeEventListener('resize', handleResize);
       }, []);
 
-    if(alias === "") throw new Error("Alias cannot be empty");
+    if(alias === "" || alias === null) throw new Error("Alias cannot be empty");
     const link = window.location.href+alias;
     return (
       <motion.div key={alias}
