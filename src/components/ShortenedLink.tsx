@@ -6,13 +6,14 @@ import {motion} from "framer-motion";
 import {useState, useEffect} from "react";
 import { FiCheck } from "react-icons/fi";
 import CopyButton from "@/components/CopyButton";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 type ShortenedLinkProps = {
   alias: string
 }
 
 export default function ShortenedLink({alias} : ShortenedLinkProps){
-
     //handle resizing for mobiles
     const [qrSize, setQrSize] = useState<number>(window.innerWidth > 768 ? 200 : 150);
     useEffect(() => {
@@ -21,11 +22,11 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
       }
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
-    }, []);
+      }, []);
 
-  const link = window.location.href+alias;
-
-  return (
+    if(alias === "") throw new Error("Alias cannot be empty");
+    const link = window.location.href+alias;
+    return (
       <motion.div key={alias}
           initial={{opacity: 0, scale: 0.90}}
           animate={{opacity: 1, scale: 1}}
@@ -41,5 +42,5 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
         </Link>
         <QRCode value={link} size={qrSize} role="img"/>
       </motion.div>
-  )
+    )
 }

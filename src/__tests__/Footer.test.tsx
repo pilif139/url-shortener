@@ -3,8 +3,8 @@ import {render, screen} from "@testing-library/react";
 
 describe("Footer", ()=>{
   it("should render correctly", ()=>{
-    render(<Footer/>)
-    expect(screen.getByRole("contentinfo")).toBeInTheDocument();
+    const {container} = render(<Footer/>)
+    expect(container).toMatchSnapshot();
   })
 
   it("should render links to socials", ()=>{
