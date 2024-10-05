@@ -21,6 +21,7 @@ export default function Modal({children} : ModalProps){
 
   return (
     <dialog
+        aria-label="dialog"
         ref={dialogRef}
         onClick={closeDialog}
         onClose={closeDialog}

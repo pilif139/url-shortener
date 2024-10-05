@@ -1,7 +1,7 @@
 import Login from '@/components/Login'
 import Modal from "@/components/Modal";
 
-export default function InterceptedRegisterPage(){
+export default function InterceptedLoginPage(){
   return(
       <Modal>
         <Login/>
