@@ -4,7 +4,7 @@ import React, {useEffect, useRef} from "react"
 import {useRouter} from "next/navigation"
 
 type ModalProps = {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 
@@ -16,8 +16,11 @@ export default function Modal({children} : ModalProps){
     dialogRef.current?.showModal()
   }, []);
 
-  const closeDialog = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) =>
-    e.target === dialogRef.current && router.back();
+  const closeDialog = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
+    if(e.target === dialogRef.current){
+        dialogRef.current?.close()
+    }
+  }
 
   return (
     <dialog
