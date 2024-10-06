@@ -6,8 +6,6 @@ import {motion} from "framer-motion";
 import {useState, useEffect} from "react";
 import { FiCheck } from "react-icons/fi";
 import CopyButton from "@/components/CopyButton";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 type ShortenedLinkProps = {
   alias: string

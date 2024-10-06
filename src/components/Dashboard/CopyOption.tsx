@@ -11,7 +11,7 @@ export default function CopyOption({row}: {row: Row<ShortLink>}){
       const {protocol, hostname, port} = window.location;
       const portPart = port ? `:${port}` : '';
       setCopyLink(`${protocol}//${hostname}${portPart}/${row.original.alias}`);
-  }, []);
+  }, [row.original.alias]);
 
   const handleCopy = async ()=>{
     try {

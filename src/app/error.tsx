@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {Button} from "@/components/ui/button";
 
 type ErrorProps = {
-  error: Error & { statusCode: number },
+  error: Error,
   reset: () => void
 }
 
