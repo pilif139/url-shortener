@@ -23,7 +23,7 @@ export default function ShortenedLink({alias} : ShortenedLinkProps){
       }, []);
 
     if(alias === "" || alias === null) throw new Error("Alias cannot be empty");
-    const link = window.location.href+alias;
+    const link = window.location.href+"/link/"+alias;
     return (
       <motion.div key={alias}
           initial={{opacity: 0, scale: 0.90}}
