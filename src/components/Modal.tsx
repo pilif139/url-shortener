@@ -18,7 +18,8 @@ export default function Modal({children} : ModalProps){
 
   const closeDialog = (e: React.MouseEvent<HTMLDialogElement, MouseEvent>) => {
     if(e.target === dialogRef.current){
-        dialogRef.current?.close()
+        dialogRef.current?.close();
+        router.push('/');
     }
   }
 
