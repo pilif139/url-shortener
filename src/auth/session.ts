@@ -45,10 +45,10 @@ export async function verifySession(){
   const session = await decrypt(cookie);
 
   if(!session?.userId){
-    return {isAuth: false}
+    return {userId: null}
   }
 
-  return {isAuth: true, userId: String(session.userId)}
+  return {userId: String(session.userId)}
 }
 
 export function deleteSession(){

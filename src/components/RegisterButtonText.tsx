@@ -6,12 +6,12 @@ import Link from "next/link";
 import ProfileMenu from "@/components/ProfileMenu";
 
 export default async function RegisterButtonText(){
-  const {isAuth, userId} = await verifySession();
+  const {userId} = await verifySession();
   let username = '';
   if(userId){
     username = await getUserById(userId).then(user => user?.username) as string;
   }
-  if(isAuth){
+  if(userId){
     return (
         <p className="flex cursor-pointer items-center gap-2 text-3xl transition">
           <ProfileMenu username={username}/>
