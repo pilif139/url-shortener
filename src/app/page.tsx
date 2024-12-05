@@ -36,7 +36,7 @@ export default function Home() {
                 animate: {opacity: 1, x: 0},
                 transition: {duration: 0.2, type: "tween", stiffness: 500, damping: 20},
             },
-            error: null,
+            error: urlError,
             setError: setUrlError,
         },
         {
@@ -49,7 +49,7 @@ export default function Home() {
                 animate: {opacity: 1, x: 0},
                 transition: {duration: 0.2, type: "tween", stiffness: 500, damping: 20},
             },
-            error: null,
+            error: aliasError,
             setError: setAliasError,
         }
     ] as FormInput[];

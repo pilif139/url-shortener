@@ -1,4 +1,4 @@
-import {useState, useRef, SetStateAction, Dispatch, RefObject} from "react";
+import { SetStateAction, Dispatch, RefObject} from "react";
 import {motion} from "framer-motion";
 
 type inputType =
@@ -52,7 +52,7 @@ export default function Form({inputs, action, setIsLoading}: FormProps) {
     return (
         <form action={action} className="flex flex-col items-center gap-5">
             {
-                inputs.map(({label, placeholder, type, name, ref, className, animation = defaultAnimation, error, setError}) => (
+                inputs.map(({label, placeholder, type, name, ref, className, animation = defaultAnimation, error }) => (
                     <>
                         <motion.div
                             key={name}
