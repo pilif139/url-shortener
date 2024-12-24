@@ -1,8 +1,8 @@
-This is URL shortener Next.js app made with TypeScript, tailwindcss, prisma, zod for validation, JWT for session auth, and PostgreSQL for database. It is deployed on Vercel.
+# URL Shortener
 
-Development database is running in docker container.
+This is URL shortener Next.js app made with TypeScript, tailwindcss, prisma, zod for validation, JWT for session auth, and PostgresSQL for database that is containerized with docker. It is deployed on Vercel.
 
-To run in development
+## To run in development:
 ```
 npm install
 docker compose up
@@ -18,3 +18,8 @@ npm run dev
 ![image](https://github.com/user-attachments/assets/cb26d059-cd1d-4755-b2d0-b25b8280daf9)
 
 ![image](https://github.com/user-attachments/assets/960d50fc-4517-4be9-aed9-93d2e4dee2dc)
+
+## TODO:
+ - [ ] Add tests
+ - [ ] Client validation of forms
+ - [ ] Change the modal system to a system i used in my newest projects.
