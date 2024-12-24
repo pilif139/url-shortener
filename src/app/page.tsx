@@ -1,29 +1,37 @@
 'use client'
 
-import Form, {FormInput} from "@/components/Form";
-import {useEffect, useRef, useState} from "react";
+import Form, { FormInput } from "@/components/Form";
+import { useEffect, useRef, useState } from "react";
 import ShortenedLink from "@/components/ShortenedLink";
-import {RiseLoader} from "react-spinners";
-import {addUrl} from "@/actions/actions";
-import {z} from "zod";
+import { RiseLoader } from "react-spinners";
+import { addUrl } from "@/actions/actions";
+import { z } from "zod";
+import useTheme from "@/hooks/useTheme";
 
 const urlSchema = z.object({
     url: z.string()
-        .url({message: "Invalid URL!"}),
+        .url({ message: "Invalid URL!" }),
     alias: z.string()
-        .max(20, {message: "To long alias!"})
+        .max(20, { message: "To long alias!" })
         .optional()
 })
 
 export default function Home() {
     const [alias, setAlias] = useState<string | undefined>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [spinnerTheme, setSpinnerTheme] = useState<"black" | "white">("black");
+
     const urlRef = useRef<HTMLInputElement>(null);
     const aliasRef = useRef<HTMLInputElement>(null);
 
     const [urlError, setUrlError] = useState<string | null>("");
     const [aliasError, setAliasError] = useState<string | null>("");
+
+    const { theme } = useTheme();
+    const [spinnerTheme, setSpinnerTheme] = useState<"black" | "white">("black");
+    useEffect(() => {
+        setSpinnerTheme(theme === "dark" ? "white" : "black");
+    }
+        , [theme]);
 
     const inputs = [
         {
@@ -32,9 +40,9 @@ export default function Home() {
             name: "url",
             ref: urlRef,
             animation: {
-                initial: {opacity: 0, x: -200},
-                animate: {opacity: 1, x: 0},
-                transition: {duration: 0.2, type: "tween", stiffness: 500, damping: 20},
+                initial: { opacity: 0, x: -200 },
+                animate: { opacity: 1, x: 0 },
+                transition: { duration: 0.2, type: "tween", stiffness: 500, damping: 20 },
             },
             error: urlError,
             setError: setUrlError,
@@ -45,19 +53,14 @@ export default function Home() {
             name: "alias",
             ref: aliasRef,
             animation: {
-                initial: {opacity: 0, x: 200},
-                animate: {opacity: 1, x: 0},
-                transition: {duration: 0.2, type: "tween", stiffness: 500, damping: 20},
+                initial: { opacity: 0, x: 200 },
+                animate: { opacity: 1, x: 0 },
+                transition: { duration: 0.2, type: "tween", stiffness: 500, damping: 20 },
             },
             error: aliasError,
             setError: setAliasError,
         }
     ] as FormInput[];
-
-    const theme = window.localStorage.getItem("theme");
-    useEffect(() => {
-        setSpinnerTheme(theme === "dark" ? "white" : "black");
-    }, [theme]);
 
     const action = async (formData: FormData) => {
         const newUrl = {
@@ -95,8 +98,8 @@ export default function Home() {
     return (
         <main className="flex flex-col items-center justify-center text-2xl">
             <Form action={action} inputs={inputs} setIsLoading={setIsLoading}></Form>
-            {!isLoading && alias && <ShortenedLink alias={alias}/>}
-            <RiseLoader loading={isLoading} size={20} className="mt-20" color={spinnerTheme}/>
+            {!isLoading && alias && <ShortenedLink alias={alias} />}
+            <RiseLoader loading={isLoading} size={20} className="mt-20" color={spinnerTheme} />
         </main>
     );
 }
